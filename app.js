@@ -8,11 +8,11 @@ const methodOverride = require('method-override') //Para poder usar o put e dele
 
 const app = express();
 app.use(express.json()); // Adiciona middleware para analisar o corpo da requisição como JSON
-app.use(express.urlencoded({extended: true})) //Middleware Para entender os parametros passados via formulário
+app.use(express.urlencoded({ extended: true })) //Middleware Para entender os parametros passados via formulário
 app.use(express.static(path.join(__dirname, 'public'))) //para colocar arquivos imutaveis, como CSS
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method', { methods: ['POST', 'GET'] }))
 
-app.set('views',  path.join(__dirname, 'src/views'))
+app.set('views', path.join(__dirname, 'src/views'))
 app.set('view engine', 'ejs')
 
 app.use('/checklists', checklistRouter); // Substitua '/checklist' pelo caminho desejado

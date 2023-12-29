@@ -1,13 +1,12 @@
-<%- include('../layouts/header', {title: 'Edit CheckList'}) %>
+<%- include('../layouts/header', {title: 'Editar lista de tarefas' }) %>
 
-<%- include('../layouts/menu') %>
+  <%- include('../layouts/menu') %>
 
-<section class="section">
-  <div class="container">
-    <h1 class="title size-4">Editar Lista</h1>
+    <section class="section">
+      <div class="container">
+        <h1 class="title size-4">Editar Lista</h1>
+        <%- include('form', {url: `/checklists/${checklist.id}/?_method=put`, checklist: checklist}) %>
+      </div>
+    </section>
 
-    <%- include('form', {url: `/checklists/${checklist.id}/?_method=put`, checklist: checklist}) %>
-  </div>
-</section>
-<!--mudar a url para post usando a bibblioteca method-override-->
-<%- include('../layouts/footer') %>
+    <%- include('../layouts/footer') %>
